@@ -24,6 +24,8 @@ What the demo covers:
 
 No copyrighted music or third-party footage is used.
 
+Narration uses an AI-generated OpenAI voice.
+
 ## Upload settings
 
 - Visibility: **Public** (not Unlisted—the competition explicitly requires publicly visible YouTube video)
@@ -41,4 +43,4 @@ No copyrighted music or third-party footage is used.
 - Captions: `submission/final-video/captions.srt`
 - Thumbnail: `public/og.png`
 
-The rendered video is 1920×1080, 2:05.74, H.264/AAC, and includes an embedded English subtitle stream in addition to the separate SRT.
+The rendered video is 1920×1080, 2:12.87, H.264/AAC, and includes an embedded English subtitle stream in addition to the separate SRT.

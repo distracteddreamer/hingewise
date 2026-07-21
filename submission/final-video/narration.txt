@@ -1,15 +1,19 @@
-AI tutors are excellent at giving answers. But a perfect explanation can leave the learner's wrong mental model completely intact. Hingewise starts somewhere else: explain what you think is happening.
+Most AI tutors are excellent at giving answers. But a correct explanation can still leave the wrong mental model untouched. Hingewise starts one step earlier: it asks you to explain what you think is happening.
 
-Here, a learner believes summer happens because Earth moves closer to the Sun. Hingewise sends that teach-back to GPT-5.6, not to grade it, but to reconstruct the causal reasoning behind it.
+In this example, the learner believes summer happens because Earth moves closer to the Sun. Hingewise sends that explanation to GPT-5.6—not to grade the learner, but to reconstruct the reasoning behind the answer.
 
-It preserves the sound footing: the Sun supplies energy, and distance can affect intensity. Then it locates the earliest wrong turn: assuming Earth moves dramatically closer during one hemisphere's summer. Everything after that is a consequence.
+It preserves what is already sound: sunlight heats Earth, and distance can affect intensity. Then it identifies the earliest wrong turn—the hidden hinge—the assumption that distance controls the seasons.
 
-Now for the distinctive part. Flip that one hinge and the downstream reasoning realigns around Earth's tilt, the angle of sunlight, and the length of each day. The interface makes the minimum conceptual change visible instead of hiding it inside a chat response.
+Here is the key interaction. Switch from Before to After, and Hingewise replaces only that hinge. The reasoning realigns around Earth’s tilt, the angle of sunlight, and the length of each day. The correction becomes visible instead of disappearing inside a chat response.
 
-Hingewise also explains why the original belief felt reasonable. Then it asks one prediction before revealing the fix: if Earth is one distance from the Sun in July, why can Canada be in summer while Argentina is in winter? That contrast repairs the model through active reasoning, not memorization.
+Hingewise also explains why the original belief felt reasonable. Then it asks for a prediction before revealing the repair: if distance causes seasons, should Australia and Canada have summer at the same time? The contradiction creates a useful surprise.
 
-Finally, a transfer question checks the new model: if Earth's orbit became perfectly circular, would seasons disappear? One misconception, one repair, and one proof that it transferred.
+A final transfer question asks the learner to apply the repaired model again. As learning continues, learners can revisit earlier analyses to see how their thinking changes over time.
 
-Codex was my primary collaborator from an empty workspace. In this session it verified the live rules, compared product directions, built the responsive experience, designed the GPT-5.6 contract, diagnosed build and interaction issues, wrote integration tests, and prepared deployment and submission materials. I made the key product call to resist chat and keep the learning loop deliberately bounded.
+I used Codex as the primary build partner. It checked the current requirements, explored product directions, implemented the responsive interface and GPT-5.6 integration, diagnosed problems, wrote integration tests, and prepared the deployment and submission materials.
 
-At runtime, GPT-5.6 uses strict Structured Outputs to turn free-form explanations into reliable before-and-after reasoning nodes, one repair challenge, and a transfer check. Hingewise: find the belief behind the mistake.
+My role was to test each version as a learner, considering both the first experience and how it felt over repeated use. I identified friction and suggested improvements that made the learning process clearer, more continuous, and more useful over time.
+
+GPT-5.6 is the reasoning engine behind every live analysis. Using strict Structured Outputs, it transforms a free-form explanation into a before-and-after reasoning trace, a targeted repair challenge, and a transfer check.
+
+That’s Hingewise: find the belief behind the mistake, change the hinge, and watch the reasoning realign.

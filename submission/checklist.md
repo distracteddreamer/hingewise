@@ -14,7 +14,7 @@
 - [x] MIT license included for a public repository
 - [x] Devpost narrative drafted
 - [x] Sub-three-minute voiceover script and shot list drafted
-- [x] 2:05 narrated 1080p demo video rendered with English caption track
+- [x] 2:13 narrated 1080p demo video rendered with an OpenAI voice and English caption track
 - [x] Separate SRT caption file prepared for YouTube
 - [x] Social/project card prepared
 
@@ -22,10 +22,10 @@
 
 - [x] Choose the final app name: Hingewise
 - [ ] Confirm eligibility and join the hackathon on Devpost
-- [ ] Add a server-side `OPENAI_API_KEY` to the deployed site's environment for arbitrary-topic live analysis
+- [x] Add a server-side `OPENAI_API_KEY` to the deployed site's environment for arbitrary-topic live analysis
 - [ ] Create or choose the final public repository, push the validated source, and paste its URL into Devpost
-- [ ] Run `/feedback` in this primary Codex task and copy the generated Session ID
-- [ ] Review `submission/final-video/hingewise-demo.mp4`; optionally replace the AI narration with your voice
+- [ ] Run `/status` in this primary Codex task and paste its Session ID into Devpost’s `/feedback Codex Session ID` field
+- [ ] Review `submission/final-video/hingewise-demo.mp4` with the new OpenAI narration
 - [ ] Upload the finished video publicly to YouTube, add `captions.srt`, and paste the URL into Devpost
 - [ ] Paste `submission/devpost.md` into the Devpost form and add the deployed URL
 - [ ] Check that the repository is public with the MIT license, or share a private repository with `testing@devpost.com` and `build-week-event@openai.com`

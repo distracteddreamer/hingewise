@@ -45,5 +45,6 @@ next-env.d.ts
 # locally rendered submission media (keep scripts/copy tracked)
 /submission/video-assets/
 /submission/final-video/*.aiff
+/submission/final-video/*.wav
 /submission/final-video/*.mp4
 /submission/final-video/contact-sheet.jpg
