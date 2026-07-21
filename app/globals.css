@@ -127,6 +127,13 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
 .transfer-strip > span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
 .transfer-strip strong { font-family: Georgia, serif; font-size: 15px; }
 .transfer-strip button { border: 0; background: none; color: #5e760d; font-size: 11px; font-weight: 900; cursor: pointer; }
+.follow-up-card { display: grid; grid-template-columns: .72fr 1.28fr; gap: 30px; margin-top: 14px; padding: 28px; border: 1px solid #cfd6c9; border-radius: 15px; background: var(--card); box-shadow: 0 12px 35px rgba(32,41,35,.06); }
+.follow-up-card h3 { margin: 8px 0 8px; font-family: Georgia, serif; font-size: 24px; line-height: 1.2; }
+.follow-up-card > div > p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.follow-up-compose textarea { min-height: 112px; font-size: 16px; }
+.follow-up-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; }
+.follow-up-footer > span { color: #98a098; font-size: 10px; }
+.follow-up-footer .primary-button { min-width: 205px; height: 44px; }
 
 .why { padding: 105px 0; border-top: 1px solid rgba(23,33,29,.15); }
 .why-heading { display: flex; justify-content: space-between; gap: 50px; align-items: end; }
@@ -166,6 +173,9 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
   .trace-controls { justify-items: start; margin: 0 0 20px; }
   .challenge-card { grid-template-columns: 1fr; gap: 20px; padding: 25px; }
   .transfer-strip { grid-template-columns: 1fr; gap: 10px; }
+  .follow-up-card { grid-template-columns: 1fr; padding: 22px; }
+  .follow-up-footer { align-items: flex-end; flex-direction: column; }
+  .follow-up-footer .primary-button { width: 100%; }
   .why-heading { display: block; }
   .why-grid { grid-template-columns: 1fr; }
   .why-grid article, .why-grid article + article { padding: 25px 0; border-right: 0; border-bottom: 1px solid #cbd0c7; }

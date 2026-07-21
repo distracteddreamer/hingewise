@@ -72,7 +72,10 @@ export default function Home() {
   const [showHint, setShowHint] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [traceMode, setTraceMode] = useState<"before" | "after">("before");
-  const [markerStyle, setMarkerStyle] = useState<"shapes" | "letters">("shapes");
+  const [markerStyle, setMarkerStyle] = useState<"classic" | "shapes" | "letters">("classic");
+  const [showFollowUp, setShowFollowUp] = useState(false);
+  const [followUpAnswer, setFollowUpAnswer] = useState("");
+  const [followUpError, setFollowUpError] = useState("");
 
   const characterCount = explanation.length;
   const canAnalyze = concept.trim().length > 1 && explanation.trim().length > 20;
@@ -82,34 +85,53 @@ export default function Home() {
     return "Tracing your reasoning…";
   }, [loading]);
 
-  async function analyze(event: FormEvent) {
-    event.preventDefault();
-    if (!canAnalyze || loading) return;
+  async function requestAnalysis(nextConcept: string, nextExplanation: string, isFollowUp = false) {
+    if (nextConcept.trim().length < 2 || nextExplanation.trim().length < 20 || loading) return;
     setLoading(true);
     setError("");
-    setAnalysis(null);
-    setOpenNode(null);
-    setShowHint(false);
-    setShowAnswer(false);
-    setTraceMode("before");
+    setFollowUpError("");
 
     try {
       const response = await fetch("/api/analyze", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ concept, explanation }),
+        body: JSON.stringify({ concept: nextConcept, explanation: nextExplanation }),
       });
       const payload = (await response.json()) as Analysis & { error?: string };
       if (!response.ok) throw new Error(payload.error || "Analysis failed");
       setAnalysis(payload);
+      setOpenNode(null);
+      setShowHint(false);
+      setShowAnswer(false);
+      setTraceMode("before");
+      setShowFollowUp(false);
+      setFollowUpAnswer("");
       window.setTimeout(() => {
         document.getElementById("mirror")?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 80);
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Something went wrong. Please try again.");
+      const message = cause instanceof Error ? cause.message : "Something went wrong. Please try again.";
+      if (isFollowUp) setFollowUpError(message);
+      else setError(message);
     } finally {
       setLoading(false);
     }
+  }
+
+  async function analyze(event: FormEvent) {
+    event.preventDefault();
+    if (!canAnalyze) return;
+    await requestAnalysis(concept, explanation);
+  }
+
+  async function analyzeFollowUp(event: FormEvent) {
+    event.preventDefault();
+    if (!analysis || followUpAnswer.trim().length < 20) return;
+    await requestAnalysis(
+      analysis.concept,
+      `Transfer question: ${analysis.transfer_question}\n\nMy explanation: ${followUpAnswer}`,
+      true,
+    );
   }
 
   function loadExample(id: string) {
@@ -117,11 +139,14 @@ export default function Home() {
     if (!example) return;
     setConcept(example.concept);
     setExplanation(example.explanation);
-    setAnalysis(null);
     setError("");
+    setFollowUpError("");
   }
 
   function markerFor(kind: ReasoningNode["kind"]) {
+    if (markerStyle === "classic") {
+      return kind === "sound" ? "✓" : kind === "hinge" ? "?" : "×";
+    }
     if (markerStyle === "letters") {
       return kind === "sound" ? "S" : kind === "hinge" ? "H" : "R";
     }
@@ -228,6 +253,7 @@ export default function Home() {
                 <div className="trace-controls">
                   <div className="marker-toggle" aria-label="Reasoning marker style">
                     <span>Markers</span>
+                    <button type="button" className={markerStyle === "classic" ? "active" : ""} onClick={() => setMarkerStyle("classic")} aria-pressed={markerStyle === "classic"}>Classic</button>
                     <button type="button" className={markerStyle === "shapes" ? "active" : ""} onClick={() => setMarkerStyle("shapes")} aria-pressed={markerStyle === "shapes"}>Shapes</button>
                     <button type="button" className={markerStyle === "letters" ? "active" : ""} onClick={() => setMarkerStyle("letters")} aria-pressed={markerStyle === "letters"}>Letters</button>
                   </div>
@@ -301,10 +327,39 @@ export default function Home() {
           <div className="transfer-strip">
             <span>Ready to prove it transferred?</span>
             <strong>{analysis.transfer_question}</strong>
-            <button type="button" onClick={() => { setExplanation(""); setAnalysis(null); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-              Explain again <span>↗</span>
+            <button type="button" aria-expanded={showFollowUp} aria-controls="follow-up" onClick={() => { setShowFollowUp(!showFollowUp); setFollowUpError(""); }}>
+              {showFollowUp ? "Close response" : "Explain again"} <span>{showFollowUp ? "↓" : "↗"}</span>
             </button>
           </div>
+
+          {showFollowUp && (
+            <form className="follow-up-card" id="follow-up" onSubmit={analyzeFollowUp}>
+              <div>
+                <div className="panel-kicker">Keep the mirror open</div>
+                <h3>Explain the transfer in your own words</h3>
+                <p>Your current result stays visible while Mirror checks the next explanation.</p>
+              </div>
+              <div className="follow-up-compose">
+                <textarea
+                  aria-label="Your transfer explanation"
+                  value={followUpAnswer}
+                  onChange={(event) => setFollowUpAnswer(event.target.value)}
+                  placeholder="I think the repaired model predicts…"
+                  maxLength={800}
+                  autoFocus
+                />
+                <div className="follow-up-footer">
+                  <span>{followUpAnswer.length}/800</span>
+                  <button className="primary-button" disabled={followUpAnswer.trim().length < 20 || loading} type="submit">
+                    {loading && <span className="spinner" aria-hidden="true" />}
+                    {loading ? "Checking your reasoning…" : "Analyze this explanation"}
+                    {!loading && <span aria-hidden="true">→</span>}
+                  </button>
+                </div>
+                {followUpError && <p className="error" role="alert">{followUpError}</p>}
+              </div>
+            </form>
+          )}
         </section>
       )}
 
