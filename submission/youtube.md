@@ -19,7 +19,8 @@ What the demo covers:
 - original and minimally repaired reasoning traces;
 - a one-minute counterexample challenge;
 - a transfer question;
-- how Codex accelerated research, product decisions, implementation, testing, and deployment; and
+- how Codex accelerated research, product decisions, implementation, testing, and deployment;
+- a real Codex work-session capture showing the app and iterative product changes; and
 - how GPT-5.6 Structured Outputs power the runtime experience.
 
 No copyrighted music or third-party footage is used.
