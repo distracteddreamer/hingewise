@@ -44,4 +44,4 @@ Narration uses an AI-generated OpenAI voice.
 - Captions: `submission/final-video/captions.srt`
 - Thumbnail: `public/og.png`
 
-The rendered video is 1920×1080, 2:12.87, H.264/AAC, and includes an embedded English subtitle stream in addition to the separate SRT.
+The rendered video is 1920×1080, 2:13.93, H.264/AAC, and includes an embedded English subtitle stream in addition to the separate SRT.

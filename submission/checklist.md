@@ -14,7 +14,7 @@
 - [x] MIT license included for a public repository
 - [x] Devpost narrative drafted
 - [x] Sub-three-minute voiceover script and shot list drafted
-- [x] 2:13 narrated 1080p demo video rendered with an OpenAI voice and English caption track
+- [x] 2:14 narrated 1080p demo video rendered with an OpenAI British-English voice and English caption track
 - [x] Separate SRT caption file prepared for YouTube
 - [x] Social/project card prepared
 

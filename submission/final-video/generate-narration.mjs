@@ -26,7 +26,7 @@ const response = await fetch("https://api.openai.com/v1/audio/speech", {
     input,
     response_format: "wav",
     instructions:
-      "Warm, intelligent, conversational product-demo narration. Sound natural and human, with varied cadence and gentle emphasis. Use brief pauses between ideas. Avoid an announcer voice, exaggerated enthusiasm, or robotic pacing. Pronounce GPT-5.6 as G P T five point six and Codex as code-ex. Aim for about 155 words per minute.",
+      "An adult woman speaking in a natural, contemporary British English accent. Warm, intelligent, and conversational, as if confidently demonstrating her own product to a small group. Use varied cadence, gentle emphasis, and brief pauses between ideas. Keep the delivery understated and authentic—never theatrical, overly posh, sales-like, or robotic. Pronounce GPT-5.6 as G P T five point six and Codex as code-ex. Aim for about 155 words per minute.",
   }),
 });
 
