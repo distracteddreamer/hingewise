@@ -49,7 +49,7 @@ The final video must be public on YouTube, contain audio, stay under three minut
 - Record at 1440×900 or 1920×1080; browser zoom 100%.
 - Hide bookmarks, notifications, API keys, and personal information.
 - Use a pointer highlight only if it remains subtle.
-- Keep the results reveal uncut from click to render if live latency is under five seconds; otherwise use the deterministic demo path.
+- Keep the results reveal uncut from click to render if live latency is under five seconds; otherwise tighten the edit around the loading interval.
 - Add burned-in English captions for silent autoplay and accessibility.
 - Use no background music unless it is original or licensed.
 - End on the strongest results frame for at least two seconds.

@@ -2,15 +2,15 @@
 
 ## Recommended title
 
-`Hingewise — Find the belief behind the mistake | OpenAI Build Week`
+`Hingewise — Find the belief behind the mistake`
 
 ## Description
 
 Hingewise is a misconception mirror for learners. Explain an idea in your own words; GPT-5.6 reconstructs the causal reasoning, preserves what is sound, finds the hidden hinge, and creates one prediction challenge that repairs the mental model.
 
-Built with Codex and GPT-5.6 for OpenAI Build Week 2026 — Education track.
+Built with Codex and GPT-5.6.
 
-**Try the project:** `[PUBLIC APP URL]`  
+**Try the project:** `https://belief-mirror.riksi.chatgpt.site`  
 **Source code:** `[PUBLIC REPOSITORY URL]`
 
 What the demo covers:

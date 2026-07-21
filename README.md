@@ -16,12 +16,12 @@ The first polished flow deliberately does one thing:
 2. **Trace** — distinguish solid premises, the hidden hinge, and the downstream break.
 3. **Flip** — replace only the hidden hinge and reveal how every downstream conclusion realigns.
 4. **Repair** — present one counterexample or prediction task before revealing the answer.
-5. **Revisit** — keep successful analyses in a private, tab-local learning trail so earlier reasoning never disappears mid-session.
-5. **Transfer** — ask a fresh question that only the repaired mental model can answer.
+5. **Revisit** — keep successful analyses in a private, tab-local learning trail so learners can compare and revisit their reasoning over time.
+6. **Transfer** — ask a fresh question that only the repaired mental model can answer.
 
 ## Try it
 
-The deployed experience includes several one-click examples and a complete built-in demo about the cause of seasons. Select **Try an example**, choose **Seasons**, then **Analyze my reasoning**. This path remains available if the live API is unavailable so anyone can test the complete product.
+The deployed experience requires no sign-in. Enter any concept and explain it in your own words, then select **Analyze my reasoning**.
 
 For live analysis of any concept, configure `OPENAI_API_KEY` on the server.
 
@@ -36,7 +36,6 @@ Important reliability choices:
 - Responses use strict Structured Outputs rather than best-effort JSON.
 - Safety refusals and empty output are handled explicitly.
 - Responses are not stored by the OpenAI API (`store: false`).
-- The canonical demo is a deterministic fallback if the API is missing or transiently fails.
 
 ## Run locally
 
@@ -60,22 +59,22 @@ npm test
 This project was created from an empty workspace during Build Week. Codex was the primary collaborator across the entire workflow:
 
 - verified the live competition rules, eligibility, required artifacts, and equal-weight judging rubric;
-- compared product directions and selected the misconception-repair wedge for its novelty, real educational value, and three-minute demo clarity;
+- compared product directions against novelty, educational value, and three-minute demo clarity;
 - scaffolded the full-stack site, designed and implemented the responsive product experience, and built the server integration;
-- translated the learning-science product decision into a strict GPT-5.6 output schema and a resilient fallback strategy;
+- translated the learning-science product direction into a strict GPT-5.6 output schema and a resilient integration strategy;
 - generated tests, accessibility behavior, documentation, deployment packaging, and the submission narrative;
 - iterated through build and runtime failures using the same primary Codex session supplied with the submission.
 
-Key human/product decision: the product intentionally does **not** become a chat tutor. It ends after one misconception, one repair, and one transfer prompt. That constraint is the product.
+The learner repeatedly tried the product and proposed changes based on how the experience would feel over successive use. That feedback shaped the persistent learning trail, focused repair flow, and final interaction polish.
 
 GPT-5.6 is used at runtime because the task requires nuanced reconstruction of free-form causal reasoning, not keyword matching. Its output is constrained enough to be reliable while leaving the diagnosis itself genuinely model-driven.
 
 ## Repository map
 
 - `app/page.tsx` — complete interactive product experience
-- `app/api/analyze/route.ts` — validated GPT-5.6 Responses API integration and deterministic demo fallback
+- `app/api/analyze/route.ts` — validated GPT-5.6 Responses API integration
 - `app/globals.css` — responsive visual system and accessible interaction states
-- `tests/rendered-html.test.mjs` — product shell, input validation, and fallback integration tests
+- `tests/rendered-html.test.mjs` — product shell, input validation, and analysis integration tests
 - `submission/` — Devpost copy, demo storyboard, shot list, and final checklist
 
 The local submission workspace also contains a narrated 1080p demo at `submission/final-video/hingewise-demo.mp4` plus `captions.srt` for YouTube caption upload. Rendered media is intentionally gitignored to keep the source repository lean.

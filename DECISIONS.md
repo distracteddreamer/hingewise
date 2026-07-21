@@ -15,7 +15,7 @@ The audience and outcome are specific: learners who can state facts but hold an 
 - Meaningful GPT-5.6 reasoning over free-form explanations
 - Responses API with strict JSON Schema
 - Model output directly drives inspectable UI state
-- Input validation, refusal handling, non-storage, server-side secret, and deterministic fallback
+- Input validation, refusal handling, non-storage, and a server-side secret
 - Production build and integration coverage
 
 ### Design

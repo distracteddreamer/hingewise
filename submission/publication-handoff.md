@@ -12,8 +12,8 @@ Add `OPENAI_API_KEY` as a secret production environment variable for the Sites p
 
 After the environment revision is set, deploy the latest saved version again and test both:
 
-- the deterministic seasons example; and
-- one arbitrary concept that proves the live GPT-5.6 path.
+- one fresh explanation entered from scratch; and
+- a second arbitrary concept that proves the live GPT-5.6 path.
 
 ## 3. Public app access
 

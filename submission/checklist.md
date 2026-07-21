@@ -6,7 +6,7 @@
 - [x] Education track selected
 - [x] Meaningful GPT-5.6 runtime integration
 - [x] Strict Structured Outputs contract
-- [x] Working no-login judge demo and deterministic fallback
+- [x] Working no-login judge experience
 - [x] Responsive, accessible product experience
 - [x] Production build passes
 - [x] Integration tests pass
@@ -34,7 +34,7 @@
 ## Final 10-minute audit
 
 - [ ] Open the deployed URL in a private window
-- [ ] Complete the default demo from start to finish
+- [ ] Complete a fresh live analysis from start to finish
 - [ ] Complete one live arbitrary-topic analysis
 - [ ] Verify the YouTube video is public and under 3:00
 - [ ] Verify the video explicitly says “Codex” and “GPT-5.6”

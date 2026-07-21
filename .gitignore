@@ -48,5 +48,14 @@ next-env.d.ts
 /submission/final-video/*.wav
 /submission/final-video/*.mp4
 /submission/final-video/contact-sheet.jpg
-/codex-record.mov
+/codex-record*.mov
 /codex-video*.mov
+/heroshot*.png
+/explain-again*.png
+/attempts-header.png
+/hero2.png
+/explain2.png
+/explain-form2.png
+/attempts2.png
+/hinge*.png
+/firstshot.png
