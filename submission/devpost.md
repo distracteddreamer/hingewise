@@ -28,6 +28,7 @@ Project Mirror asks a learner to explain any concept in their own words. It then
 
 - reconstructs the explanation as a causal reasoning trace;
 - distinguishes solid premises from the hidden hinge where the reasoning turns;
+- lets the learner flip that hinge and watch the downstream reasoning chain realign;
 - names the precise belief to replace and explains why it felt plausible;
 - offers a better mental model without overwhelming the learner;
 - generates one prediction or counterexample challenge before revealing the answer; and
@@ -37,7 +38,7 @@ The default seasons example makes the complete experience testable without sign-
 
 ## How we built it
 
-Project Mirror is a responsive full-stack React/Next experience compiled with vinext for Cloudflare Workers. The analysis route calls the OpenAI Responses API with GPT-5.6 and uses strict Structured Outputs to produce a product-native schema: diagnosis, belief, reasoning nodes, repair, micro-challenge, and transfer question.
+Project Mirror is a responsive full-stack React/Next experience compiled with vinext for Cloudflare Workers. The analysis route calls the OpenAI Responses API with GPT-5.6 and uses strict Structured Outputs to produce a product-native schema: diagnosis, belief, original reasoning nodes, minimally repaired nodes, micro-challenge, and transfer question.
 
 The architecture intentionally avoids a conversational loop. The model does one bounded diagnostic pass, the interface makes that reasoning inspectable, and the learner performs one targeted repair. Input limits, server-only credentials, explicit refusal handling, `store: false`, and a judge-safe fallback keep the experience reliable.
 
@@ -64,7 +65,7 @@ Reliability was the second challenge. A live AI demo can fail for reasons unrela
 ## Accomplishments we're proud of
 
 - The product feels like a finished learning interaction, not a prompt wrapper.
-- The reasoning trace preserves what the learner got right before identifying the break.
+- The before/after reasoning trace preserves what the learner got right and changes only the causal hinge.
 - The repair is active: learners must predict before seeing the explanation.
 - The entire core loop is understandable in under one minute.
 - The deployed demo requires no account and remains functional without a secret.

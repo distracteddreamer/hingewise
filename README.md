@@ -14,8 +14,9 @@ The first polished flow deliberately does one thing:
 
 1. **Listen** — accept a free-form teach-back, not a multiple-choice response.
 2. **Trace** — distinguish solid premises, the hidden hinge, and the downstream break.
-3. **Repair** — present one counterexample or prediction task before revealing the answer.
-4. **Transfer** — ask a fresh question that only the repaired mental model can answer.
+3. **Flip** — replace only the hidden hinge and reveal how every downstream conclusion realigns.
+4. **Repair** — present one counterexample or prediction task before revealing the answer.
+5. **Transfer** — ask a fresh question that only the repaired mental model can answer.
 
 ## Try it
 
@@ -25,7 +26,7 @@ For live analysis of any concept, configure `OPENAI_API_KEY` on the server.
 
 ## GPT-5.6 implementation
 
-The server route at `app/api/analyze/route.ts` calls the OpenAI Responses API with `model: "gpt-5.6"`. A strict JSON Schema constrains the result into product-native units: diagnosis, detected belief, reasoning nodes, repair, challenge, and transfer question. This is not decorative generation—the model's structured reasoning trace directly creates the interface and learning interaction.
+The server route at `app/api/analyze/route.ts` calls the OpenAI Responses API with `model: "gpt-5.6"`. A strict JSON Schema constrains the result into product-native units: diagnosis, detected belief, before-and-after reasoning nodes, repair, challenge, and transfer question. This is not decorative generation—the model's structured causal trace directly creates the interface and learning interaction.
 
 Important reliability choices:
 

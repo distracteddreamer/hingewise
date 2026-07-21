@@ -16,9 +16,9 @@ The final video must be public on YouTube, contain audio, stay under three minut
 
 ## 0:32–1:08 — The reveal
 
-**On screen:** Results scroll into view. Pause on the dark diagnosis card, then expand the first sound node and the hidden hinge.
+**On screen:** Results scroll into view. Pause on the dark diagnosis card, expand the hidden hinge, then switch the trace from **Before** to **After**.
 
-**Voiceover:** “It preserves the sound footing: the Sun supplies energy, and distance can affect intensity. Then it locates the earliest wrong turn: assuming Earth moves dramatically closer during one hemisphere's summer. Everything after that is a consequence. The interface makes the chain inspectable instead of hiding it inside a chat response.”
+**Voiceover:** “It preserves the sound footing: the Sun supplies energy, and distance can affect intensity. Then it locates the earliest wrong turn: assuming Earth moves dramatically closer during one hemisphere's summer. Flip that one hinge and the downstream chain realigns around tilt, ray angle, and day length. The interface makes the change inspectable instead of hiding it inside a chat response.”
 
 ## 1:08–1:38 — The repair
 

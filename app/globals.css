@@ -76,7 +76,16 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
 .trace-layout { display: grid; grid-template-columns: 1.35fr .65fr; gap: 22px; }
 .trace-panel, .belief-panel { min-height: 510px; padding: 34px; border-radius: 15px; background: var(--card); border: 1px solid var(--line); }
 .panel-kicker { color: #72890e; text-transform: uppercase; letter-spacing: .14em; font-size: 9px; font-weight: 900; }
-.trace-panel > h3, .belief-panel > h3 { margin: 8px 0 28px; font-family: Georgia, serif; font-size: 25px; line-height: 1.16; }
+.trace-panel-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.trace-panel-top h3, .belief-panel > h3 { margin: 8px 0 24px; font-family: Georgia, serif; font-size: 25px; line-height: 1.16; }
+.trace-toggle { display: inline-flex; padding: 3px; border: 1px solid #d3d8cf; border-radius: 99px; background: #f1f2ed; }
+.trace-toggle button { min-width: 55px; height: 27px; padding: 0 10px; border: 0; border-radius: 99px; background: transparent; color: #7c867d; cursor: pointer; font-size: 9px; font-weight: 900; transition: background .2s, color .2s, transform .2s; }
+.trace-toggle button.active { background: var(--ink); color: white; box-shadow: 0 2px 8px rgba(23,33,29,.14); }
+.hinge-flip { display: flex; align-items: center; gap: 10px; margin: -6px 0 21px; padding: 10px 12px; border-radius: 8px; background: #fff7d9; color: #766020; transition: background .25s, color .25s; }
+.hinge-flip.flipped { background: #edf5da; color: #536b0c; }
+.hinge-flip span { display: grid; place-items: center; width: 23px; height: 23px; flex: 0 0 auto; border-radius: 50%; background: rgba(255,255,255,.65); font-weight: 900; transition: transform .35s; }
+.hinge-flip.flipped span { transform: rotate(180deg); }
+.hinge-flip p { margin: 0; font-size: 10px; font-weight: 800; }
 .trace-row { display: grid; grid-template-columns: 34px 1fr; min-height: 91px; }
 .trace-rail { display: flex; flex-direction: column; align-items: center; }
 .trace-dot { z-index: 1; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: #ebf5c8; color: #5c7507; font-size: 12px; font-weight: 900; }
@@ -143,6 +152,8 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
   .quote-mark { top: 15px; left: 22px; }
   .trace-layout { grid-template-columns: 1fr; }
   .trace-panel, .belief-panel { min-height: auto; padding: 25px; }
+  .trace-panel-top { display: block; }
+  .trace-toggle { margin: 0 0 20px; }
   .challenge-card { grid-template-columns: 1fr; gap: 20px; padding: 25px; }
   .transfer-strip { grid-template-columns: 1fr; gap: 10px; }
   .why-heading { display: block; }

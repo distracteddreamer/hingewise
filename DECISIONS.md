@@ -36,6 +36,7 @@ The audience and outcome are specific: learners who can state facts but hold an 
 
 - “Misconception mirror,” not chatbot tutor
 - Preserves plausible reasoning and identifies the earliest causal hinge
+- Makes the minimum conceptual repair visible as a before/after causal trace
 - Uses a single counterexample as the repair mechanism
 - Product restraint is visible and defensible
 

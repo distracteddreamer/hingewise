@@ -16,6 +16,7 @@ type Analysis = {
   why_it_feels_true: string;
   repair: string;
   nodes: ReasoningNode[];
+  repaired_nodes: ReasoningNode[];
   challenge: {
     prompt: string;
     hint: string;
@@ -43,6 +44,7 @@ export default function Home() {
   const [openNode, setOpenNode] = useState<string | null>(null);
   const [showHint, setShowHint] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [traceMode, setTraceMode] = useState<"before" | "after">("before");
 
   const characterCount = explanation.length;
   const canAnalyze = concept.trim().length > 1 && explanation.trim().length > 20;
@@ -61,6 +63,7 @@ export default function Home() {
     setOpenNode(null);
     setShowHint(false);
     setShowAnswer(false);
+    setTraceMode("before");
 
     try {
       const response = await fetch("/api/analyze", {
@@ -174,14 +177,26 @@ export default function Home() {
 
           <div className="trace-layout">
             <div className="trace-panel">
-              <div className="panel-kicker">Reasoning trace</div>
-              <h3>How your explanation unfolds</h3>
+              <div className="trace-panel-top">
+                <div>
+                  <div className="panel-kicker">Reasoning trace</div>
+                  <h3>{traceMode === "before" ? "How your explanation unfolds" : "What changes when the hinge flips"}</h3>
+                </div>
+                <div className="trace-toggle" aria-label="Reasoning trace view">
+                  <button type="button" className={traceMode === "before" ? "active" : ""} onClick={() => setTraceMode("before")}>Before</button>
+                  <button type="button" className={traceMode === "after" ? "active" : ""} onClick={() => setTraceMode("after")}>After</button>
+                </div>
+              </div>
+              <div className={`hinge-flip ${traceMode === "after" ? "flipped" : ""}`}>
+                <span aria-hidden="true">↻</span>
+                <p>{traceMode === "before" ? "One assumption bends everything after it." : "Replace the hinge; the downstream logic realigns."}</p>
+              </div>
               <div className="trace" role="list">
-                {analysis.nodes.map((node, index) => (
+                {(traceMode === "before" ? analysis.nodes : analysis.repaired_nodes).map((node, index, displayedNodes) => (
                   <div className={`trace-row ${node.kind}`} role="listitem" key={node.id}>
                     <div className="trace-rail" aria-hidden="true">
                       <span className="trace-dot">{node.kind === "sound" ? "✓" : node.kind === "hinge" ? "?" : "×"}</span>
-                      {index < analysis.nodes.length - 1 && <span className="trace-line" />}
+                      {index < displayedNodes.length - 1 && <span className="trace-line" />}
                     </div>
                     <button
                       className="trace-node"
@@ -189,14 +204,14 @@ export default function Home() {
                       aria-expanded={openNode === node.id}
                       onClick={() => setOpenNode(openNode === node.id ? null : node.id)}
                     >
-                      <span className="node-kind">{node.kind === "sound" ? "Solid footing" : node.kind === "hinge" ? "The hidden hinge" : "Where it breaks"}</span>
+                      <span className="node-kind">{node.kind === "sound" ? "Solid footing" : node.kind === "hinge" ? (traceMode === "before" ? "The hidden hinge" : "Hinge replaced") : "Where it breaks"}</span>
                       <strong>{node.label}</strong>
                       <span className={`node-detail ${openNode === node.id ? "open" : ""}`}>{node.detail}</span>
                     </button>
                   </div>
                 ))}
               </div>
-              <p className="tap-note">Tap each step to inspect the reasoning.</p>
+              <p className="tap-note">Switch views, then tap each step to inspect the reasoning.</p>
             </div>
 
             <aside className="belief-panel">

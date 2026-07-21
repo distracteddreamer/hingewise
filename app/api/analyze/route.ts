@@ -14,6 +14,12 @@ const DEMO_ANALYSIS = {
     { id: "n3", label: "Earth moves much closer during summer", detail: "This is the hinge. The orbit is nearly circular, and the whole planet shares the same distance at once.", kind: "hinge" },
     { id: "n4", label: "So both hemispheres should warm together", detail: "But July is summer in the north and winter in the south. Distance predicts the wrong pattern.", kind: "misconception" },
   ],
+  repaired_nodes: [
+    { id: "r1", label: "The Sun is Earth's main heat source", detail: "This stays in place. The correction does not discard the learner's sound foundation.", kind: "sound" },
+    { id: "r2", label: "Earth's axis is tilted as it orbits", detail: "This replaces the distance assumption with the feature that actually changes illumination by hemisphere.", kind: "hinge" },
+    { id: "r3", label: "Tilt changes ray angle and day length", detail: "A hemisphere tilted toward the Sun receives more direct light for more hours each day.", kind: "sound" },
+    { id: "r4", label: "Opposite hemispheres get opposite seasons", detail: "The repaired model now predicts the Canada–Argentina pattern that distance could not explain.", kind: "sound" },
+  ],
   challenge: {
     prompt: "In July, Earth is one distance from the Sun. Why can Canada be in summer while Argentina is in winter?",
     hint: "Look at which hemisphere tilts toward the Sun—and what that does to the angle and length of daylight.",
@@ -27,7 +33,7 @@ const DEMO_ANALYSIS = {
 const schema = {
   type: "object",
   additionalProperties: false,
-  required: ["concept", "diagnosis", "detected_belief", "why_it_feels_true", "repair", "nodes", "challenge", "transfer_question"],
+  required: ["concept", "diagnosis", "detected_belief", "why_it_feels_true", "repair", "nodes", "repaired_nodes", "challenge", "transfer_question"],
   properties: {
     concept: { type: "string" },
     diagnosis: { type: "string" },
@@ -35,6 +41,17 @@ const schema = {
     why_it_feels_true: { type: "string" },
     repair: { type: "string" },
     nodes: {
+      type: "array", minItems: 3, maxItems: 5,
+      items: {
+        type: "object", additionalProperties: false,
+        required: ["id", "label", "detail", "kind"],
+        properties: {
+          id: { type: "string" }, label: { type: "string" }, detail: { type: "string" },
+          kind: { type: "string", enum: ["sound", "hinge", "misconception"] },
+        },
+      },
+    },
+    repaired_nodes: {
       type: "array", minItems: 3, maxItems: 5,
       items: {
         type: "object", additionalProperties: false,
@@ -79,7 +96,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Live analysis is not configured yet. Choose ‘Use example’ to try the complete judge-safe demo." }, { status: 503 });
   }
 
-  const instructions = `You are a diagnostic learning scientist, not a generic tutor. Analyze a learner's explanation to locate the earliest plausible belief that causes later errors. Preserve what is correct. Build a causal reasoning trace in the learner's own logic. Create exactly one short prediction or counterexample challenge that exposes the misconception before explaining the answer. Be precise, warm, and concise. Never shame the learner. If the explanation is already correct, find its most fragile unstated assumption and label that as the hinge. Keep each field under 55 words. Return only the requested structured data.`;
+  const instructions = `You are a diagnostic learning scientist, not a generic tutor. Analyze a learner's explanation to locate the earliest plausible belief that causes later errors. Preserve what is correct. Build nodes as the learner's causal reasoning trace. Then build repaired_nodes as a parallel trace showing the smallest possible change: keep sound foundations, replace the hinge, and show how downstream conclusions realign. Both arrays must contain 3–5 concise nodes and exactly one hinge; repaired_nodes should contain no misconception unless an important limitation remains. Create exactly one short prediction or counterexample challenge that exposes the misconception before explaining the answer. Be precise, warm, and concise. Never shame the learner. If the explanation is already correct, find its most fragile unstated assumption and label that as the hinge. Keep each field under 55 words. Return only the requested structured data.`;
 
   try {
     const openAIResponse = await fetch("https://api.openai.com/v1/responses", {

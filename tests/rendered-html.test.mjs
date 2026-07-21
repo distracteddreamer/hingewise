@@ -60,4 +60,6 @@ test("keeps the canonical demo functional without a secret", async () => {
   assert.equal(payload.model, "gpt-5.6");
   assert.equal(payload.mode, "demo");
   assert.equal(payload.nodes.length, 4);
+  assert.equal(payload.repaired_nodes.length, 4);
+  assert.equal(payload.repaired_nodes.filter((node) => node.kind === "hinge").length, 1);
 });
