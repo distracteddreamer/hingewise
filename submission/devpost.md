@@ -32,7 +32,8 @@ Project Mirror asks a learner to explain any concept in their own words. It then
 - names the precise belief to replace and explains why it felt plausible;
 - offers a better mental model without overwhelming the learner;
 - generates one prediction or counterexample challenge before revealing the answer; and
-- asks a transfer question to check whether the repaired model generalizes.
+- asks a transfer question to check whether the repaired model generalizes; and
+- keeps a compact session trail so learners can revisit earlier reasoning without cluttering the page.
 
 The default seasons example makes the complete experience testable without sign-in. A deterministic fallback keeps that demo working even during a transient API failure.
 

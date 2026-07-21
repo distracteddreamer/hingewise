@@ -65,7 +65,8 @@ const steps = ["Listen", "Trace", "Repair"];
 export default function Home() {
   const [concept, setConcept] = useState(DEFAULT_EXAMPLE.concept);
   const [explanation, setExplanation] = useState(DEFAULT_EXAMPLE.explanation);
-  const [analysis, setAnalysis] = useState<Analysis | null>(null);
+  const [attempts, setAttempts] = useState<Analysis[]>([]);
+  const [activeAttempt, setActiveAttempt] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [openNode, setOpenNode] = useState<string | null>(null);
@@ -79,6 +80,7 @@ export default function Home() {
 
   const characterCount = explanation.length;
   const canAnalyze = concept.trim().length > 1 && explanation.trim().length > 20;
+  const analysis = attempts[activeAttempt] ?? null;
 
   const progressLabel = useMemo(() => {
     if (!loading) return "Analyze my reasoning";
@@ -99,7 +101,9 @@ export default function Home() {
       });
       const payload = (await response.json()) as Analysis & { error?: string };
       if (!response.ok) throw new Error(payload.error || "Analysis failed");
-      setAnalysis(payload);
+      const nextAttempt = attempts.length;
+      setAttempts([...attempts, payload]);
+      setActiveAttempt(nextAttempt);
       setOpenNode(null);
       setShowHint(false);
       setShowAnswer(false);
@@ -151,6 +155,17 @@ export default function Home() {
       return kind === "sound" ? "S" : kind === "hinge" ? "H" : "R";
     }
     return kind === "sound" ? "●" : kind === "hinge" ? "◆" : "○";
+  }
+
+  function showAttempt(index: number) {
+    setActiveAttempt(index);
+    setOpenNode(null);
+    setShowHint(false);
+    setShowAnswer(false);
+    setTraceMode("before");
+    setShowFollowUp(false);
+    setFollowUpAnswer("");
+    setFollowUpError("");
   }
 
   return (
@@ -234,8 +249,34 @@ export default function Home() {
               <div className="eyebrow"><span>✦</span> Your misconception mirror</div>
               <h2>One wrong turn.<br /><em>Now visible.</em></h2>
             </div>
-            <div className="model-pill"><i /> {analysis.mode === "live" ? "Live" : "Resilient demo"} · {analysis.model}</div>
+            <div className="result-meta">
+              <div className="model-pill"><i /> {analysis.mode === "live" ? "Live" : "Resilient demo"} · {analysis.model}</div>
+              {attempts.length > 1 && (
+                <div className="history-stepper" aria-label="Session analysis history">
+                  <button
+                    type="button"
+                    disabled={activeAttempt === 0}
+                    onClick={() => showAttempt(Math.max(0, activeAttempt - 1))}
+                    aria-label="Show earlier analysis"
+                  >← <span>Earlier</span></button>
+                  <div aria-live="polite">
+                    <strong>Attempt {activeAttempt + 1} of {attempts.length}</strong>
+                    <span>{analysis.concept}</span>
+                  </div>
+                  <button
+                    type="button"
+                    disabled={activeAttempt === attempts.length - 1}
+                    onClick={() => showAttempt(Math.min(attempts.length - 1, activeAttempt + 1))}
+                    aria-label="Show later analysis"
+                  ><span>Later</span> →</button>
+                </div>
+              )}
+            </div>
           </div>
+
+          {attempts.length > 1 && activeAttempt === attempts.length - 1 && (
+            <p className="history-note">Earlier reasoning is still available in this session.</p>
+          )}
 
           <div className="diagnosis-card">
             <span className="quote-mark">“</span>

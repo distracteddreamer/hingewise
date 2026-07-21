@@ -70,7 +70,17 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
 .results { padding: 90px 0 110px; border-top: 1px solid rgba(23,33,29,.15); }
 .result-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
 .result-heading h2 { max-width: 650px; margin-bottom: 0; font-size: clamp(46px, 5.3vw, 70px); }
+.result-meta { display: grid; justify-items: end; gap: 10px; }
 .model-pill { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; padding: 9px 13px; background: rgba(255,255,255,.6); border: 1px solid var(--line); border-radius: 99px; color: var(--muted); font-size: 11px; white-space: nowrap; }
+.history-stepper { display: grid; grid-template-columns: auto minmax(100px, auto) auto; align-items: center; gap: 8px; padding: 5px; border: 1px solid #d2d7ce; border-radius: 10px; background: rgba(255,255,255,.62); }
+.history-stepper button { height: 31px; padding: 0 9px; border: 0; border-radius: 7px; background: transparent; color: #5e760d; cursor: pointer; font-size: 9px; font-weight: 900; }
+.history-stepper button:hover:not(:disabled) { background: #edf5da; }
+.history-stepper button:disabled { opacity: .28; cursor: default; }
+.history-stepper > div { min-width: 105px; padding: 0 9px; border-inline: 1px solid #dfe3dc; text-align: center; }
+.history-stepper strong, .history-stepper > div span { display: block; }
+.history-stepper strong { color: #4f5a52; font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+.history-stepper > div span { max-width: 145px; margin-top: 2px; overflow: hidden; color: #7a847c; font-family: Georgia, serif; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.history-note { margin: 12px 0 -30px; color: #7c867e; text-align: right; font-size: 10px; }
 .diagnosis-card { position: relative; margin: 46px 0 22px; padding: 35px 90px 32px; overflow: hidden; border-radius: 15px; background: var(--ink); color: white; }
 .diagnosis-card p { margin: 0; max-width: 850px; font-family: Georgia, serif; font-size: clamp(23px, 2.6vw, 33px); line-height: 1.28; letter-spacing: -.025em; }
 .quote-mark { position: absolute; top: 12px; left: 26px; color: var(--lime); font-family: Georgia, serif; font-size: 65px; line-height: 1; }
@@ -164,7 +174,11 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
   .primary-button { width: 100%; }
   .results { padding: 70px 0; }
   .result-heading { display: block; }
+  .result-meta { justify-items: start; }
   .model-pill { width: fit-content; margin-top: 20px; }
+  .history-stepper { width: 100%; grid-template-columns: auto 1fr auto; }
+  .history-stepper button span { display: none; }
+  .history-note { margin: 10px 0 -24px; text-align: left; }
   .diagnosis-card { padding: 62px 24px 25px; }
   .quote-mark { top: 15px; left: 22px; }
   .trace-layout { grid-template-columns: 1fr; }

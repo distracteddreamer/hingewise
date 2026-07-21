@@ -16,6 +16,7 @@ The first polished flow deliberately does one thing:
 2. **Trace** — distinguish solid premises, the hidden hinge, and the downstream break.
 3. **Flip** — replace only the hidden hinge and reveal how every downstream conclusion realigns.
 4. **Repair** — present one counterexample or prediction task before revealing the answer.
+5. **Revisit** — keep successful analyses in a private, tab-local learning trail so earlier reasoning never disappears mid-session.
 5. **Transfer** — ask a fresh question that only the repaired mental model can answer.
 
 ## Try it
