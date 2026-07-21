@@ -1,0 +1,15 @@
+file '../video-assets/01-hero.jpg'
+duration 26
+file '../video-assets/02-before.jpg'
+duration 16
+file '../video-assets/03-after.jpg'
+duration 17
+file '../video-assets/04-hint.jpg'
+duration 20
+file '../video-assets/05-answer.jpg'
+duration 12
+file '../video-assets/03-after.jpg'
+duration 22
+file '../video-assets/06-close.jpg'
+duration 13
+file '../video-assets/06-close.jpg'

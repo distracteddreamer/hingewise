@@ -41,3 +41,9 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# locally rendered submission media (keep scripts/copy tracked)
+/submission/video-assets/
+/submission/final-video/*.aiff
+/submission/final-video/*.mp4
+/submission/final-video/contact-sheet.jpg

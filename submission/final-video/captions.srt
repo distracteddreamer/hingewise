@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:13,000
+AI tutors are excellent at giving answers. But a perfect explanation can leave the learner's wrong mental model intact.
+
+2
+00:00:13,000 --> 00:00:26,000
+Mirror starts with a teach-back and asks GPT-5.6 to reconstruct the causal reasoning behind it.
+
+3
+00:00:26,000 --> 00:00:40,500
+It preserves the sound footing, then locates the earliest wrong turn—the hidden hinge.
+
+4
+00:00:40,500 --> 00:00:58,500
+Flip that one hinge and watch the downstream reasoning realign around tilt, sunlight angle, and day length.
+
+5
+00:00:58,500 --> 00:01:18,500
+One prediction exposes the misconception before the answer is revealed: same distance, opposite seasons.
+
+6
+00:01:18,500 --> 00:01:29,500
+A transfer question checks whether the repaired mental model generalizes.
+
+7
+00:01:29,500 --> 00:01:53,000
+Codex was the primary collaborator: rules, product decisions, implementation, debugging, tests, deployment, and submission.
+
+8
+00:01:53,000 --> 00:02:05,740
+GPT-5.6 Structured Outputs power the product-native reasoning trace, repair challenge, and transfer check.

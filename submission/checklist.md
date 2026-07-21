@@ -14,6 +14,8 @@
 - [x] MIT license included for a public repository
 - [x] Devpost narrative drafted
 - [x] Sub-three-minute voiceover script and shot list drafted
+- [x] 2:05 narrated 1080p demo video rendered with English caption track
+- [x] Separate SRT caption file prepared for YouTube
 - [x] Social/project card prepared
 
 ## User-required final actions
@@ -23,8 +25,8 @@
 - [ ] Add a server-side `OPENAI_API_KEY` to the deployed site's environment for arbitrary-topic live analysis
 - [ ] Create or choose the final public repository, push the validated source, and paste its URL into Devpost
 - [ ] Run `/feedback` in this primary Codex task and copy the generated Session ID
-- [ ] Record the scripted demo with English voiceover and captions
-- [ ] Upload the video publicly to YouTube and paste the URL into Devpost
+- [ ] Review `submission/final-video/project-mirror-demo.mp4`; optionally replace the AI narration with your voice
+- [ ] Upload the finished video publicly to YouTube, add `captions.srt`, and paste the URL into Devpost
 - [ ] Paste `submission/devpost.md` into the Devpost form and add the deployed URL
 - [ ] Check that the repository is public with the MIT license, or share a private repository with `testing@devpost.com` and `build-week-event@openai.com`
 - [ ] Submit before **July 21, 2026 at 5:00 PM Pacific**

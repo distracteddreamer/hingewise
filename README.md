@@ -77,6 +77,8 @@ GPT-5.6 is used at runtime because the task requires nuanced reconstruction of f
 - `tests/rendered-html.test.mjs` — product shell, input validation, and fallback integration tests
 - `submission/` — Devpost copy, demo storyboard, shot list, and final checklist
 
+The local submission workspace also contains a verified 2:05, 1080p narrated demo at `submission/final-video/project-mirror-demo.mp4` plus `captions.srt` for YouTube caption upload. Rendered media is intentionally gitignored to keep the source repository lean.
+
 ## Privacy and limitations
 
 Project Mirror does not persist learner explanations. Live text is sent to the OpenAI API solely to generate the reasoning trace. The prototype is a learning aid, not an assessment system; teachers and learners should verify subject-matter claims, especially in high-stakes domains.
