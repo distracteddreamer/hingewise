@@ -11,7 +11,7 @@ Hingewise is a misconception mirror for learners. Explain an idea in your own wo
 Built with Codex and GPT-5.6.
 
 **Try the project:** `https://belief-mirror.riksi.chatgpt.site`  
-**Source code:** `[PUBLIC REPOSITORY URL]`
+**Source code:** `https://github.com/distracteddreamer/hingewise`
 
 What the demo covers:
 
