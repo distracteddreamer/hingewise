@@ -1,5 +1,7 @@
 # YouTube upload package
 
+**Published video:** https://youtu.be/q5uI0g9UPAU
+
 ## Recommended title
 
 `Hingewise — Find the belief behind the mistake`

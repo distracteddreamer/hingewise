@@ -25,8 +25,8 @@
 - [x] Add a server-side `OPENAI_API_KEY` to the deployed site's environment for arbitrary-topic live analysis
 - [x] Create the final public repository and push the validated source
 - [ ] Run `/status` in this primary Codex task and paste its Session ID into Devpost’s `/feedback Codex Session ID` field
-- [ ] Review `submission/final-video/hingewise-demo.mp4` with the new OpenAI narration
-- [ ] Upload the finished video publicly to YouTube, add `captions.srt`, and paste the URL into Devpost
+- [x] Review `submission/final-video/hingewise-demo.mp4` with the new OpenAI narration
+- [x] Upload the finished video publicly to YouTube: `https://youtu.be/q5uI0g9UPAU`
 - [ ] Paste `submission/devpost.md` into the Devpost form and add the deployed URL
 - [x] Check that the repository is public with the MIT license
 - [ ] Submit before **July 21, 2026 at 5:00 PM Pacific**
@@ -36,8 +36,8 @@
 - [x] Open the deployed URL without owner access
 - [x] Complete a fresh live analysis from start to finish
 - [ ] Complete one live arbitrary-topic analysis
-- [ ] Verify the YouTube video is public and under 3:00
-- [ ] Verify the video explicitly says “Codex” and “GPT-5.6”
+- [x] Verify the YouTube video is public and under 3:00
+- [x] Verify the video explicitly says “Codex” and “GPT-5.6”
 - [x] Verify the repository link opens without requesting access
 - [ ] Verify README setup commands in a clean checkout
 - [ ] Verify no `.env`, API key, personal data, or private capture is committed
