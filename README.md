@@ -20,7 +20,7 @@ The first polished flow deliberately does one thing:
 
 ## Try it
 
-The deployed experience includes a complete, no-login demo about the cause of seasons. Select **Use example**, then **Analyze my reasoning**. This path remains available if the live API is unavailable so judges can always test the complete product.
+The deployed experience includes several one-click examples and a complete built-in demo about the cause of seasons. Select **Try an example**, choose **Seasons**, then **Analyze my reasoning**. This path remains available if the live API is unavailable so anyone can test the complete product.
 
 For live analysis of any concept, configure `OPENAI_API_KEY` on the server.
 
@@ -72,7 +72,7 @@ GPT-5.6 is used at runtime because the task requires nuanced reconstruction of f
 ## Repository map
 
 - `app/page.tsx` — complete interactive product experience
-- `app/api/analyze/route.ts` — validated GPT-5.6 Responses API integration and judge-safe demo
+- `app/api/analyze/route.ts` — validated GPT-5.6 Responses API integration and deterministic demo fallback
 - `app/globals.css` — responsive visual system and accessible interaction states
 - `tests/rendered-html.test.mjs` — product shell, input validation, and fallback integration tests
 - `submission/` — Devpost copy, demo storyboard, shot list, and final checklist

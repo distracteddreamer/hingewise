@@ -40,7 +40,7 @@ The default seasons example makes the complete experience testable without sign-
 
 Project Mirror is a responsive full-stack React/Next experience compiled with vinext for Cloudflare Workers. The analysis route calls the OpenAI Responses API with GPT-5.6 and uses strict Structured Outputs to produce a product-native schema: diagnosis, belief, original reasoning nodes, minimally repaired nodes, micro-challenge, and transfer question.
 
-The architecture intentionally avoids a conversational loop. The model does one bounded diagnostic pass, the interface makes that reasoning inspectable, and the learner performs one targeted repair. Input limits, server-only credentials, explicit refusal handling, `store: false`, and a judge-safe fallback keep the experience reliable.
+The architecture intentionally avoids a conversational loop. The model does one bounded diagnostic pass, the interface makes that reasoning inspectable, and the learner performs one targeted repair. Input limits, server-only credentials, explicit refusal handling, `store: false`, and a deterministic fallback keep the experience reliable.
 
 ## How we used Codex and GPT-5.6
 
@@ -52,7 +52,7 @@ Codex was the primary collaborator from an empty workspace through a tested depl
 - translated the product hypothesis into a strict GPT-5.6 schema;
 - diagnosed setup, build, interaction, and responsive-layout issues;
 - wrote integration tests, documentation, submission copy, and the demo storyboard; and
-- prepared the deployable source and judge-safe testing path.
+- prepared the deployable source and reliable testing path.
 
 GPT-5.6 is the runtime reasoning engine. Its role is essential: free-form explanations contain correct premises, implicit assumptions, and plausible causal leaps that cannot be diagnosed with keyword matching. Structured Outputs let the model's diagnosis drive a reliable, coherent interface instead of appearing as a generic chat response.
 
@@ -84,7 +84,7 @@ The next version would let teachers compare anonymized misconception patterns ac
 ## Testing instructions for judges
 
 1. Open the deployed URL; no login is required.
-2. Keep the prefilled seasons explanation or click **Use example**.
+2. Keep the prefilled seasons explanation or select **Seasons** from **Try an example**.
 3. Click **Analyze my reasoning**.
 4. Expand a reasoning node, reveal the hint, then reveal the repair.
 5. For live GPT-5.6 analysis, replace the concept and explanation with any other topic.

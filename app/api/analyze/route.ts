@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     if (isDemoExample(concept, explanation)) return NextResponse.json(DEMO_ANALYSIS);
-    return NextResponse.json({ error: "Live analysis is not configured yet. Choose ‘Use example’ to try the complete judge-safe demo." }, { status: 503 });
+    return NextResponse.json({ error: "Live analysis is not configured yet. Choose the Seasons example to try the complete built-in demo." }, { status: 503 });
   }
 
   const instructions = `You are a diagnostic learning scientist, not a generic tutor. Analyze a learner's explanation to locate the earliest plausible belief that causes later errors. Preserve what is correct. Build nodes as the learner's causal reasoning trace. Then build repaired_nodes as a parallel trace showing the smallest possible change: keep sound foundations, replace the hinge, and show how downstream conclusions realign. Both arrays must contain 3–5 concise nodes and exactly one hinge; repaired_nodes should contain no misconception unless an important limitation remains. Create exactly one short prediction or counterexample challenge that exposes the misconception before explaining the answer. Be precise, warm, and concise. Never shame the learner. If the explanation is already correct, find its most fragile unstated assumption and label that as the hinge. Keep each field under 55 words. Return only the requested structured data.`;

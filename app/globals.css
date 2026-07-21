@@ -46,7 +46,9 @@ h1 em, h2 em { color: #53615a; font-weight: 400; }
 .step-number { width: 48px; height: 48px; display: grid; place-items: center; flex: 0 0 auto; margin-right: 16px; border-radius: 50%; background: var(--ink); color: white; font-size: 12px; font-weight: 800; }
 .card-topline h2 { margin: 2px 0 5px; font-family: Georgia, serif; font-size: 26px; }
 .card-topline p { margin: 0; color: var(--muted); font-size: 13px; }
-.example-link { margin-left: auto; border: 0; background: none; padding: 9px 0; color: #5f780c; font-weight: 800; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.example-picker { margin-left: auto; display: grid; gap: 5px; color: #677169; font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: .1em; }
+.example-picker select { min-width: 165px; height: 36px; padding: 0 30px 0 11px; border: 1px solid #cdd3c8; border-radius: 8px; background: #f7f8f3; color: #536b0c; cursor: pointer; font-size: 11px; font-weight: 800; text-transform: none; letter-spacing: 0; }
+.example-picker select:focus-visible { outline: 3px solid rgba(170,202,59,.25); outline-offset: 2px; }
 .field-label { display: block; margin: 0 0 9px; color: #4f5b53; font-size: 12px; font-weight: 800; }
 .concept-input, textarea { width: 100%; border: 1px solid #cfd5cb; background: #fbfbf7; color: var(--ink); outline: none; transition: border-color .2s, box-shadow .2s; }
 .concept-input { height: 48px; padding: 0 15px; border-radius: 9px; }
@@ -78,9 +80,14 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
 .panel-kicker { color: #72890e; text-transform: uppercase; letter-spacing: .14em; font-size: 9px; font-weight: 900; }
 .trace-panel-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .trace-panel-top h3, .belief-panel > h3 { margin: 8px 0 24px; font-family: Georgia, serif; font-size: 25px; line-height: 1.16; }
+.trace-controls { display: grid; justify-items: end; gap: 7px; }
 .trace-toggle { display: inline-flex; padding: 3px; border: 1px solid #d3d8cf; border-radius: 99px; background: #f1f2ed; }
 .trace-toggle button { min-width: 55px; height: 27px; padding: 0 10px; border: 0; border-radius: 99px; background: transparent; color: #7c867d; cursor: pointer; font-size: 9px; font-weight: 900; transition: background .2s, color .2s, transform .2s; }
 .trace-toggle button.active { background: var(--ink); color: white; box-shadow: 0 2px 8px rgba(23,33,29,.14); }
+.marker-toggle { display: inline-flex; align-items: center; gap: 3px; color: #7c867d; font-size: 8px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+.marker-toggle > span { margin-right: 4px; }
+.marker-toggle button { height: 22px; padding: 0 8px; border: 1px solid #d3d8cf; border-radius: 99px; background: transparent; color: #6f7971; cursor: pointer; font-size: 8px; font-weight: 900; }
+.marker-toggle button.active { border-color: #aeb99f; background: #edf5da; color: #536b0c; }
 .hinge-flip { display: flex; align-items: center; gap: 10px; margin: -6px 0 21px; padding: 10px 12px; border-radius: 8px; background: #fff7d9; color: #766020; transition: background .25s, color .25s; }
 .hinge-flip.flipped { background: #edf5da; color: #536b0c; }
 .hinge-flip span { display: grid; place-items: center; width: 23px; height: 23px; flex: 0 0 auto; border-radius: 50%; background: rgba(255,255,255,.65); font-weight: 900; transition: transform .35s; }
@@ -142,6 +149,9 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
   .hero { padding: 60px 0 70px; }
   .hero h1 { font-size: 49px; }
   .input-card { padding: 22px; margin-top: 34px; }
+  .card-topline { flex-wrap: wrap; }
+  .example-picker { width: 100%; margin: 18px 0 0 64px; }
+  .example-picker select { width: 100%; }
   .card-topline p, .form-footer p { display: none; }
   .form-footer { justify-content: stretch; }
   .primary-button { width: 100%; }
@@ -153,7 +163,7 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
   .trace-layout { grid-template-columns: 1fr; }
   .trace-panel, .belief-panel { min-height: auto; padding: 25px; }
   .trace-panel-top { display: block; }
-  .trace-toggle { margin: 0 0 20px; }
+  .trace-controls { justify-items: start; margin: 0 0 20px; }
   .challenge-card { grid-template-columns: 1fr; gap: 20px; padding: 25px; }
   .transfer-strip { grid-template-columns: 1fr; gap: 10px; }
   .why-heading { display: block; }

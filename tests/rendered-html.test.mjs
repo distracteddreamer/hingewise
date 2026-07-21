@@ -20,8 +20,13 @@ test("server-renders the complete product shell", async () => {
   assert.match(html, /Project Mirror/);
   assert.match(html, /Show me where I went wrong/);
   assert.match(html, /Teach it back/);
+  assert.match(html, /Try an example/);
+  assert.match(html, /Compound interest/);
+  assert.match(html, /Natural selection/);
   assert.match(html, /Analyze my reasoning/);
   assert.match(html, /Built with Codex \+ GPT/);
+  assert.doesNotMatch(html, /judge-safe/i);
+  assert.doesNotMatch(html, /[✓×✕✗]/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Your site is taking shape/);
 });
 

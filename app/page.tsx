@@ -27,17 +27,44 @@ type Analysis = {
   mode: "live" | "demo";
 };
 
-const EXAMPLE = {
-  concept: "The seasons",
-  explanation:
-    "Summer happens because Earth moves closer to the Sun, so it gets hotter. In winter Earth is farther away, so it gets colder.",
-};
+const EXAMPLES = [
+  {
+    id: "seasons",
+    label: "Seasons",
+    concept: "The seasons",
+    explanation:
+      "Summer happens because Earth moves closer to the Sun, so it gets hotter. In winter Earth is farther away, so it gets colder.",
+  },
+  {
+    id: "compound-interest",
+    label: "Compound interest",
+    concept: "Compound interest",
+    explanation:
+      "Compound interest means the bank adds the same fixed amount of interest every year, so the balance grows in a straight line over time.",
+  },
+  {
+    id: "recursion",
+    label: "Recursion",
+    concept: "Recursion in programming",
+    explanation:
+      "A recursive function keeps calling itself until the computer notices the answer is complete, then it automatically knows when to stop.",
+  },
+  {
+    id: "natural-selection",
+    label: "Natural selection",
+    concept: "Natural selection",
+    explanation:
+      "Animals adapt during their lifetime because they need a trait, then their offspring inherit the improvement that the parent developed.",
+  },
+] as const;
+
+const DEFAULT_EXAMPLE = EXAMPLES[0];
 
 const steps = ["Listen", "Trace", "Repair"];
 
 export default function Home() {
-  const [concept, setConcept] = useState(EXAMPLE.concept);
-  const [explanation, setExplanation] = useState(EXAMPLE.explanation);
+  const [concept, setConcept] = useState(DEFAULT_EXAMPLE.concept);
+  const [explanation, setExplanation] = useState(DEFAULT_EXAMPLE.explanation);
   const [analysis, setAnalysis] = useState<Analysis | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -45,6 +72,7 @@ export default function Home() {
   const [showHint, setShowHint] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [traceMode, setTraceMode] = useState<"before" | "after">("before");
+  const [markerStyle, setMarkerStyle] = useState<"shapes" | "letters">("shapes");
 
   const characterCount = explanation.length;
   const canAnalyze = concept.trim().length > 1 && explanation.trim().length > 20;
@@ -84,11 +112,20 @@ export default function Home() {
     }
   }
 
-  function resetExample() {
-    setConcept(EXAMPLE.concept);
-    setExplanation(EXAMPLE.explanation);
+  function loadExample(id: string) {
+    const example = EXAMPLES.find((item) => item.id === id);
+    if (!example) return;
+    setConcept(example.concept);
+    setExplanation(example.explanation);
     setAnalysis(null);
     setError("");
+  }
+
+  function markerFor(kind: ReasoningNode["kind"]) {
+    if (markerStyle === "letters") {
+      return kind === "sound" ? "S" : kind === "hinge" ? "H" : "R";
+    }
+    return kind === "sound" ? "●" : kind === "hinge" ? "◆" : "○";
   }
 
   return (
@@ -120,7 +157,13 @@ export default function Home() {
               <h2>Teach it back</h2>
               <p>Messy thinking welcome. Confidence is useful signal.</p>
             </div>
-            <button className="example-link" type="button" onClick={resetExample}>Use example</button>
+            <label className="example-picker">
+              <span>Try an example</span>
+              <select defaultValue="" onChange={(event) => { loadExample(event.target.value); event.target.value = ""; }}>
+                <option value="" disabled>Choose a topic</option>
+                {EXAMPLES.map((example) => <option key={example.id} value={example.id}>{example.label}</option>)}
+              </select>
+            </label>
           </div>
 
           <label className="field-label" htmlFor="concept">What are you learning?</label>
@@ -182,9 +225,16 @@ export default function Home() {
                   <div className="panel-kicker">Reasoning trace</div>
                   <h3>{traceMode === "before" ? "How your explanation unfolds" : "What changes when the hinge flips"}</h3>
                 </div>
-                <div className="trace-toggle" aria-label="Reasoning trace view">
-                  <button type="button" className={traceMode === "before" ? "active" : ""} onClick={() => setTraceMode("before")}>Before</button>
-                  <button type="button" className={traceMode === "after" ? "active" : ""} onClick={() => setTraceMode("after")}>After</button>
+                <div className="trace-controls">
+                  <div className="marker-toggle" aria-label="Reasoning marker style">
+                    <span>Markers</span>
+                    <button type="button" className={markerStyle === "shapes" ? "active" : ""} onClick={() => setMarkerStyle("shapes")} aria-pressed={markerStyle === "shapes"}>Shapes</button>
+                    <button type="button" className={markerStyle === "letters" ? "active" : ""} onClick={() => setMarkerStyle("letters")} aria-pressed={markerStyle === "letters"}>Letters</button>
+                  </div>
+                  <div className="trace-toggle" aria-label="Reasoning trace view">
+                    <button type="button" className={traceMode === "before" ? "active" : ""} onClick={() => setTraceMode("before")}>Before</button>
+                    <button type="button" className={traceMode === "after" ? "active" : ""} onClick={() => setTraceMode("after")}>After</button>
+                  </div>
                 </div>
               </div>
               <div className={`hinge-flip ${traceMode === "after" ? "flipped" : ""}`}>
@@ -195,7 +245,7 @@ export default function Home() {
                 {(traceMode === "before" ? analysis.nodes : analysis.repaired_nodes).map((node, index, displayedNodes) => (
                   <div className={`trace-row ${node.kind}`} role="listitem" key={node.id}>
                     <div className="trace-rail" aria-hidden="true">
-                      <span className="trace-dot">{node.kind === "sound" ? "✓" : node.kind === "hinge" ? "?" : "×"}</span>
+                      <span className="trace-dot">{markerFor(node.kind)}</span>
                       {index < displayedNodes.length - 1 && <span className="trace-line" />}
                     </div>
                     <button
