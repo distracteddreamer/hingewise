@@ -4,7 +4,7 @@ AI tutors are excellent at giving answers. But a perfect explanation can leave t
 
 2
 00:00:13,000 --> 00:00:26,000
-Mirror starts with a teach-back and asks GPT-5.6 to reconstruct the causal reasoning behind it.
+Hingewise starts with a teach-back and asks GPT-5.6 to reconstruct the causal reasoning behind it.
 
 3
 00:00:26,000 --> 00:00:40,500

@@ -18,13 +18,13 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const title = "Project Mirror — Find the belief behind the mistake";
-  const description = "Explain an idea in your own words. Project Mirror traces your reasoning and designs one tiny challenge to repair the misconception.";
+  const title = "Hingewise — Find the belief behind the mistake";
+  const description = "Explain an idea in your own words. Hingewise traces your reasoning and designs one tiny challenge to repair the misconception.";
   return {
     title,
     description,
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
-    openGraph: { title, description, images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Project Mirror reasoning trace" }] },
+    openGraph: { title, description, images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Hingewise reasoning trace" }] },
     twitter: { card: "summary_large_image", title, description, images: [`${origin}/og.png`] },
   };
 }

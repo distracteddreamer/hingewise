@@ -20,12 +20,12 @@
 
 ## User-required final actions
 
-- [ ] Choose the final app name; replace “Project Mirror” everywhere
+- [x] Choose the final app name: Hingewise
 - [ ] Confirm eligibility and join the hackathon on Devpost
 - [ ] Add a server-side `OPENAI_API_KEY` to the deployed site's environment for arbitrary-topic live analysis
 - [ ] Create or choose the final public repository, push the validated source, and paste its URL into Devpost
 - [ ] Run `/feedback` in this primary Codex task and copy the generated Session ID
-- [ ] Review `submission/final-video/project-mirror-demo.mp4`; optionally replace the AI narration with your voice
+- [ ] Review `submission/final-video/hingewise-demo.mp4`; optionally replace the AI narration with your voice
 - [ ] Upload the finished video publicly to YouTube, add `captions.srt`, and paste the URL into Devpost
 - [ ] Paste `submission/devpost.md` into the Devpost form and add the deployed URL
 - [ ] Check that the repository is public with the MIT license, or share a private repository with `testing@devpost.com` and `build-week-event@openai.com`

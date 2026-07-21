@@ -4,7 +4,7 @@ These steps cause public external changes and are intentionally held for the ent
 
 ## 1. Brand
 
-Choose the final display name. The current temporary codename is **Project Mirror**; the neutral deployed slug is **belief-mirror**.
+The final display name is **Hingewise**. The neutral deployed slug remains **belief-mirror**.
 
 ## 2. Live GPT-5.6
 

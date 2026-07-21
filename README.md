@@ -1,14 +1,14 @@
-# Project Mirror (temporary codename)
+# Hingewise
 
 > **Find the belief behind the mistake.**
 
-Project Mirror is a diagnostic learning tool that asks a learner to explain an idea in their own words. Instead of generating another lesson or giving away the answer, it uses GPT-5.6 to reconstruct the learner's reasoning, preserve what is correct, locate the earliest mistaken belief, and create one tiny prediction challenge that repairs it.
+Hingewise is a diagnostic learning tool that asks a learner to explain an idea in their own words. Instead of generating another lesson or giving away the answer, it uses GPT-5.6 to reconstruct the learner's reasoning, preserve what is correct, locate the earliest mistaken belief, and create one tiny prediction challenge that repairs it.
 
 Built for the **Education** track of [OpenAI Build Week](https://openai.devpost.com/).
 
 ## Why this exists
 
-Most AI tutors optimize for answering questions. But a correct answer can leave the learner's underlying mental model untouched. Project Mirror focuses on the moment before explanation: the learner's own causal story. It makes the hidden hinge visible, then uses contrast and prediction to make the correction memorable.
+Most AI tutors optimize for answering questions. But a correct answer can leave the learner's underlying mental model untouched. Hingewise focuses on the moment before explanation: the learner's own causal story. It makes the hidden hinge visible, then uses contrast and prediction to make the correction memorable.
 
 The first polished flow deliberately does one thing:
 
@@ -78,11 +78,11 @@ GPT-5.6 is used at runtime because the task requires nuanced reconstruction of f
 - `tests/rendered-html.test.mjs` — product shell, input validation, and fallback integration tests
 - `submission/` — Devpost copy, demo storyboard, shot list, and final checklist
 
-The local submission workspace also contains a verified 2:05, 1080p narrated demo at `submission/final-video/project-mirror-demo.mp4` plus `captions.srt` for YouTube caption upload. Rendered media is intentionally gitignored to keep the source repository lean.
+The local submission workspace also contains a narrated 1080p demo at `submission/final-video/hingewise-demo.mp4` plus `captions.srt` for YouTube caption upload. Rendered media is intentionally gitignored to keep the source repository lean.
 
 ## Privacy and limitations
 
-Project Mirror does not persist learner explanations. Live text is sent to the OpenAI API solely to generate the reasoning trace. The prototype is a learning aid, not an assessment system; teachers and learners should verify subject-matter claims, especially in high-stakes domains.
+Hingewise does not persist learner explanations. Live text is sent to the OpenAI API solely to generate the reasoning trace. The prototype is a learning aid, not an assessment system; teachers and learners should verify subject-matter claims, especially in high-stakes domains.
 
 ## License
 

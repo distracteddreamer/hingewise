@@ -2,7 +2,7 @@
 
 ## Chosen wedge
 
-Project Mirror diagnoses one misconception from a learner's teach-back and repairs it through contrast. The narrowness is deliberate: it creates a complete product loop that can be understood and demonstrated in under three minutes.
+Hingewise diagnoses one misconception from a learner's teach-back and repairs it through contrast. The narrowness is deliberate: it creates a complete product loop that can be understood and demonstrated in under three minutes.
 
 ## Why Education
 

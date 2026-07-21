@@ -2,7 +2,7 @@
 
 ## Temporary project title
 
-Project Mirror
+Hingewise
 
 ## Tagline
 
@@ -14,7 +14,7 @@ Education
 
 ## Short description
 
-Project Mirror turns a learner's confident explanation into a visual reasoning trace. GPT-5.6 preserves the parts they understand, pinpoints the earliest mistaken belief, and creates one tiny prediction challenge that makes the correction stick.
+Hingewise turns a learner's confident explanation into a visual reasoning trace. GPT-5.6 preserves the parts they understand, pinpoints the earliest mistaken belief, and creates one tiny prediction challenge that makes the correction stick.
 
 ## Inspiration
 
@@ -24,7 +24,7 @@ The most revealing moment in learning is often the sentence, “I think it works
 
 ## What it does
 
-Project Mirror asks a learner to explain any concept in their own words. It then:
+Hingewise asks a learner to explain any concept in their own words. It then:
 
 - reconstructs the explanation as a causal reasoning trace;
 - distinguishes solid premises from the hidden hinge where the reasoning turns;
@@ -39,7 +39,7 @@ The default seasons example makes the complete experience testable without sign-
 
 ## How we built it
 
-Project Mirror is a responsive full-stack React/Next experience compiled with vinext for Cloudflare Workers. The analysis route calls the OpenAI Responses API with GPT-5.6 and uses strict Structured Outputs to produce a product-native schema: diagnosis, belief, original reasoning nodes, minimally repaired nodes, micro-challenge, and transfer question.
+Hingewise is a responsive full-stack React/Next experience compiled with vinext for Cloudflare Workers. The analysis route calls the OpenAI Responses API with GPT-5.6 and uses strict Structured Outputs to produce a product-native schema: diagnosis, belief, original reasoning nodes, minimally repaired nodes, micro-challenge, and transfer question.
 
 The architecture intentionally avoids a conversational loop. The model does one bounded diagnostic pass, the interface makes that reasoning inspectable, and the learner performs one targeted repair. Input limits, server-only credentials, explicit refusal handling, `store: false`, and a deterministic fallback keep the experience reliable.
 

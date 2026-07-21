@@ -17,7 +17,7 @@ test("server-renders the complete product shell", async () => {
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
-  assert.match(html, /Project Mirror/);
+  assert.match(html, /Hingewise/);
   assert.match(html, /Show me where I went wrong/);
   assert.match(html, /Teach it back/);
   assert.match(html, /Try an example/);

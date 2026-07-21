@@ -6,13 +6,13 @@ The final video must be public on YouTube, contain audio, stay under three minut
 
 **On screen:** Hero and prefilled explanation.
 
-**Voiceover:** “AI tutors are great at giving answers. But a perfect explanation can leave the learner's wrong mental model completely intact. Project Mirror starts somewhere else: explain what you think is happening.”
+**Voiceover:** “AI tutors are great at giving answers. But a perfect explanation can leave the learner's wrong mental model completely intact. Hingewise starts somewhere else: explain what you think is happening.”
 
 ## 0:15–0:32 — The input
 
 **On screen:** Briefly highlight the concept and learner explanation. Click **Analyze my reasoning**.
 
-**Voiceover:** “Here a learner believes summer happens because Earth moves closer to the Sun. Mirror sends their teach-back to GPT-5.6—not to grade it, but to reconstruct the causal reasoning behind it.”
+**Voiceover:** “Here a learner believes summer happens because Earth moves closer to the Sun. Hingewise sends their teach-back to GPT-5.6—not to grade it, but to reconstruct the causal reasoning behind it.”
 
 ## 0:32–1:08 — The reveal
 
@@ -24,7 +24,7 @@ The final video must be public on YouTube, contain audio, stay under three minut
 
 **On screen:** Show the belief panel. Scroll to the one-minute repair, click **Give me a hint**, then **Check the repair**.
 
-**Voiceover:** “Mirror also explains why the belief felt reasonable. Then it asks one prediction before revealing the fix: if Earth is one distance from the Sun in July, why can Canada be in summer while Argentina is in winter? That contrast repairs the model with tilt, angle, and daylight—not memorization.”
+**Voiceover:** “Hingewise also explains why the belief felt reasonable. Then it asks one prediction before revealing the fix: if Earth is one distance from the Sun in July, why can Canada be in summer while Argentina is in winter? That contrast repairs the model with tilt, angle, and daylight—not memorization.”
 
 ## 1:38–1:52 — Transfer
 
@@ -42,7 +42,7 @@ The final video must be public on YouTube, contain audio, stay under three minut
 
 **On screen:** Show `model: "gpt-5.6"`, `json_schema`, then return to the finished reasoning trace and social card.
 
-**Voiceover:** “At runtime, GPT-5.6 uses strict Structured Outputs to turn free-form explanations into reliable reasoning nodes, one repair challenge, and a transfer check. Project Mirror: find the belief behind the mistake.”
+**Voiceover:** “At runtime, GPT-5.6 uses strict Structured Outputs to turn free-form explanations into reliable reasoning nodes, one repair challenge, and a transfer check. Hingewise: find the belief behind the mistake.”
 
 ## Capture notes
 

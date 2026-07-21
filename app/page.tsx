@@ -171,9 +171,9 @@ export default function Home() {
   return (
     <main>
       <nav className="nav shell" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="Project Mirror home">
-          <span className="brand-mark" aria-hidden="true">M</span>
-          <span>Project Mirror</span>
+        <a className="brand" href="#top" aria-label="Hingewise home">
+          <span className="brand-mark" aria-hidden="true">H</span>
+          <span>Hingewise</span>
           <span className="beta">beta</span>
         </a>
         <div className="nav-right">
@@ -186,7 +186,7 @@ export default function Home() {
         <div className="eyebrow"><span>✦</span> A different kind of tutor</div>
         <h1>Don&apos;t show me the answer.<br /><em>Show me where I went wrong.</em></h1>
         <p className="hero-copy">
-          Explain an idea in your own words. Mirror traces your reasoning, finds the one belief holding you back,
+          Explain an idea in your own words. Hingewise traces your reasoning, finds the one belief holding you back,
           and gives you a tiny challenge that makes the correction stick.
         </p>
 
@@ -419,8 +419,8 @@ export default function Home() {
       </section>
 
       <footer className="footer shell">
-        <div className="brand"><span className="brand-mark">M</span><span>Project Mirror</span></div>
-        <p>Built with Codex + GPT‑5.6 for OpenAI Build Week.</p>
+        <div className="brand"><span className="brand-mark">H</span><span>Hingewise</span></div>
+        <p>Built with Codex + GPT‑5.6.</p>
         <div className="footer-steps">{steps.map((step, index) => <span key={step}>{index + 1}. {step}</span>)}</div>
       </footer>
     </main>
