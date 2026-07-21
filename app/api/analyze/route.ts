@@ -76,6 +76,11 @@ function isDemoExample(concept: string, explanation: string) {
   return combined.includes("season") && combined.includes("closer") && combined.includes("sun");
 }
 
+function hasOneHinge(value: unknown) {
+  if (!Array.isArray(value) || value.length < 3 || value.length > 5) return false;
+  return value.filter((node) => node && typeof node === "object" && (node as { kind?: unknown }).kind === "hinge").length === 1;
+}
+
 export async function POST(request: NextRequest) {
   let body: Input;
   try {
@@ -110,6 +115,7 @@ export async function POST(request: NextRequest) {
         text: { format: { type: "json_schema", name: "misconception_mirror", strict: true, schema } },
         store: false,
       }),
+      signal: AbortSignal.timeout(30_000),
     });
 
     const raw = await openAIResponse.json() as { output_text?: string; error?: { message?: string }; output?: Array<{ content?: Array<{ type?: string; text?: string; refusal?: string }> }> };
@@ -118,7 +124,11 @@ export async function POST(request: NextRequest) {
     const refusal = raw.output?.flatMap(item => item.content || []).find(item => item.type === "refusal")?.refusal;
     if (refusal) return NextResponse.json({ error: refusal }, { status: 422 });
     if (!outputText) throw new Error("The model returned no analysis");
-    return NextResponse.json({ ...JSON.parse(outputText), model: "gpt-5.6", mode: "live" });
+    const analysis = JSON.parse(outputText) as { nodes?: unknown; repaired_nodes?: unknown };
+    if (!hasOneHinge(analysis.nodes) || !hasOneHinge(analysis.repaired_nodes)) {
+      throw new Error("The model response did not contain exactly one hinge per trace");
+    }
+    return NextResponse.json({ ...analysis, model: "gpt-5.6", mode: "live" });
   } catch (error) {
     if (isDemoExample(concept, explanation)) return NextResponse.json(DEMO_ANALYSIS);
     console.error("Analysis failed", error);
