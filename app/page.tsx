@@ -274,10 +274,6 @@ export default function Home() {
             </div>
           </div>
 
-          {attempts.length > 1 && activeAttempt === attempts.length - 1 && (
-            <p className="history-note">Earlier reasoning is still available in this session.</p>
-          )}
-
           <div className="diagnosis-card">
             <span className="quote-mark">“</span>
             <p>{analysis.diagnosis}</p>
@@ -328,7 +324,6 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <p className="tap-note">Switch views, then tap each step to inspect the reasoning.</p>
             </div>
 
             <aside className="belief-panel">
@@ -376,9 +371,8 @@ export default function Home() {
           {showFollowUp && (
             <form className="follow-up-card" id="follow-up" onSubmit={analyzeFollowUp}>
               <div>
-                <div className="panel-kicker">Keep the mirror open</div>
+                <div className="panel-kicker">Transfer question</div>
                 <h3>Explain the transfer in your own words</h3>
-                <p>Your current result stays visible while Mirror checks the next explanation.</p>
               </div>
               <div className="follow-up-compose">
                 <textarea

@@ -80,7 +80,6 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
 .history-stepper strong, .history-stepper > div span { display: block; }
 .history-stepper strong { color: #4f5a52; font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
 .history-stepper > div span { max-width: 145px; margin-top: 2px; overflow: hidden; color: #7a847c; font-family: Georgia, serif; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
-.history-note { margin: 12px 0 -30px; color: #7c867e; text-align: right; font-size: 10px; }
 .diagnosis-card { position: relative; margin: 46px 0 22px; padding: 35px 90px 32px; overflow: hidden; border-radius: 15px; background: var(--ink); color: white; }
 .diagnosis-card p { margin: 0; max-width: 850px; font-family: Georgia, serif; font-size: clamp(23px, 2.6vw, 33px); line-height: 1.28; letter-spacing: -.025em; }
 .quote-mark { position: absolute; top: 12px; left: 26px; color: var(--lime); font-family: Georgia, serif; font-size: 65px; line-height: 1; }
@@ -114,7 +113,6 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
 .trace-node strong { display: block; font-family: Georgia, serif; font-size: 18px; line-height: 1.25; }
 .node-detail { display: block; max-height: 0; overflow: hidden; color: var(--muted); font-size: 12px; line-height: 1.5; transition: max-height .25s, padding-top .25s; }
 .node-detail.open { max-height: 90px; padding-top: 7px; }
-.tap-note { margin: 2px 0 0 45px; color: #97a097; font-size: 10px; }
 .belief-panel { position: relative; background: var(--coral-soft); border-color: #f1cfc7; }
 .belief-icon { position: absolute; top: 25px; right: 25px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--coral); color: white; font-size: 21px; }
 .panel-kicker.coral { color: #bd4530; }
@@ -139,7 +137,6 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
 .transfer-strip button { border: 0; background: none; color: #5e760d; font-size: 11px; font-weight: 900; cursor: pointer; }
 .follow-up-card { display: grid; grid-template-columns: .72fr 1.28fr; gap: 30px; margin-top: 14px; padding: 28px; border: 1px solid #cfd6c9; border-radius: 15px; background: var(--card); box-shadow: 0 12px 35px rgba(32,41,35,.06); }
 .follow-up-card h3 { margin: 8px 0 8px; font-family: Georgia, serif; font-size: 24px; line-height: 1.2; }
-.follow-up-card > div > p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
 .follow-up-compose textarea { min-height: 112px; font-size: 16px; }
 .follow-up-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; }
 .follow-up-footer > span { color: #98a098; font-size: 10px; }
@@ -178,7 +175,6 @@ textarea { display: block; min-height: 150px; resize: vertical; padding: 17px 18
   .model-pill { width: fit-content; margin-top: 20px; }
   .history-stepper { width: 100%; grid-template-columns: auto 1fr auto; }
   .history-stepper button span { display: none; }
-  .history-note { margin: 10px 0 -24px; text-align: left; }
   .diagnosis-card { padding: 62px 24px 25px; }
   .quote-mark { top: 15px; left: 22px; }
   .trace-layout { grid-template-columns: 1fr; }
